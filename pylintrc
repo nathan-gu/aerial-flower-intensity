@@ -1,0 +1,121 @@
+[MAIN]
+
+# Minimum Python version to use for version dependent checks. Will default to the
+# version used to run pylint.
+py-version=3.11
+
+# List of module names for which member attributes should not be checked
+# (useful for modules/projects where namespaces are manipulated during runtime
+# and thus existing member attributes cannot be deduced by static analysis). It
+# supports qualified module names, as well as Unix pattern matching.
+#
+# Pylint / astroid does not interpret cv2.__init__.pyi resulting in everything being missed in the
+# cv2 package. See also https://github.com/pylint-dev/pylint/issues/9185
+# ignored-modules=cv2
+
+# Disable the message, report, category or checker with the given id(s). You
+# can either give multiple identifiers separated by comma (,) or put this
+# option multiple times (only on the command line, not in the configuration
+# file where it should appear only once). You can also use "--disable=all" to
+# disable everything first and then re-enable specific checks. For example, if
+# you want to run only the similarities checker, you can use "--disable=all
+# --enable=similarities". If you want to run only the classes checker, but have
+# no Warning level messages displayed, use "--disable=all --enable=classes
+# --disable=W".
+disable=raw-checker-failed,
+        bad-inline-option,
+        locally-disabled,
+        file-ignored,
+        suppressed-message,
+        deprecated-pragma,
+        use-symbolic-message-instead,
+        too-few-public-methods,
+        too-many-locals,
+        too-many-statements
+
+# Enable the message, report, category or checker with the given id(s). You can
+# either give multiple identifier separated by comma (,) or put this option
+# multiple time (only on the command line, not in the configuration file where
+# it should appear only once). See also the "--disable" option for examples.
+enable=useless-suppression,
+       c-extension-no-member
+
+# Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
+# number of processors available to use, and will cap the count on Windows to
+# avoid hangs.
+jobs=0
+
+# Set the output format. Available formats are: text, parseable, colorized, json2
+# (improved json format), json (old json format) and msvs (visual studio). You can
+# also give a reporter class, e.g. mypackage.mymodule.MyReporterClass.
+output-format=colorized
+
+# Activate the evaluation score.
+score=no
+
+[BASIC]
+
+# Good variable names which should always be accepted, separated by a comma.
+good-names=i,
+           j,
+           k,
+           ex,
+           Run,
+           _,
+           x,
+           y,
+           z
+
+[DESIGN]
+
+# Maximum number of arguments for function / method.
+max-args=10
+
+# Maximum number of attributes for a class (see R0902).
+max-attributes=15
+
+[FORMAT]
+
+# Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
+expected-line-ending-format=
+
+# Number of spaces of indent required inside a hanging or continued line.
+indent-after-paren=1
+
+# String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
+# tab).
+indent-string="    "
+
+# Maximum number of characters on a single line.
+max-line-length=100
+
+# Maximum number of lines in a module.
+max-module-lines=1000
+
+
+[MISCELLANEOUS]
+
+# List of note tags to take in consideration, separated by a comma.
+notes=FIXME,
+      XXX,
+      TODO,
+      DEBUG
+
+
+[SIMILARITIES]
+
+# Minimum lines number of a similarity.
+min-similarity-lines=8
+
+
+[STRING]
+
+# This flag controls whether inconsistent-quotes generates a warning when the
+# character used as a quote delimiter is used inconsistently within a module.
+check-quote-consistency=yes
+
+[TYPECHECK]
+# Only include modules that cause false positives
+generated-members=
+      cv2.*, 
+      matplotlib.cm.*

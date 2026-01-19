@@ -1,0 +1,14 @@
+*
+
+# Clean project sources
+!src/
+src/*.egg-info/
+src/**/__pycache__/
+
+# Building files
+!MANIFEST.in
+!pyproject.toml
+!requirements.txt
+!setup.cfg
+!setup.py
+!wheels/
